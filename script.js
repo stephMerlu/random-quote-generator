@@ -6588,14 +6588,23 @@ const colors = [
   '#73A857'
 ];
 
+
+
+
+
 function getRandomColor() {
   const randomColor = colors[
     Math.floor(Math.random() * colors.length)
   ];
 
-  // Your code below
+  let bodyElt = document.body;
+  let buttonElt = document.querySelector('#new-quote');
+  bodyElt.style.backgroundColor = randomColor;
+  buttonElt.style.backgroundColor = randomColor;
+  bodyElt.style.color = randomColor;
+  
 
-  // Your code above
+console.log('testColor')  
 }
 
 function getRandomQuote() {
@@ -6603,11 +6612,21 @@ function getRandomQuote() {
     Math.floor(Math.random() * quotesData.length)
   ];
 
-  // Your code below
+  let textElt = document.querySelector('#text').textContent = randomQuote.text;
+  let authorElt = document.querySelector('#author').textContent = randomQuote.author;
+  textElt.style.color = randomQuote;
+  authorElt.style.color = randomQuote;  
 
-  // Your code above
+console.log('testQuote')
 }
 
-// Your code below
 
-// Your code above
+
+let buttonElt = document.querySelector('#new-quote');
+console.log(buttonElt);
+
+buttonElt.addEventListener('click', getRandomQuote);
+buttonElt.addEventListener('click', getRandomColor);
+
+window.onload = getRandomColor;
+window.onload = getRandomQuote;
